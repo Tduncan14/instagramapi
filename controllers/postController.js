@@ -1,4 +1,6 @@
-const validationHandler = require('../validator/validationHandler')
+const validationHandler = require('../validator/validationHandler');
+
+const PostModel = require('../model/post.model');
 
 
 exports.index = (req,res) =>{
@@ -13,6 +15,8 @@ exports.index = (req,res) =>{
 
 exports.store = (req,res,next) => {
 
+    
+  
 
     console.log(req.body, "this is req.body" ,req.body.name,'req that body')
 
