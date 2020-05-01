@@ -13,22 +13,32 @@ exports.index = (req,res) =>{
 }
 
 
-exports.store = (req,res,next) => {
+exports.store = async (req,res,next) => {
 
     
   
 
-    console.log(req.body, "this is req.body" ,req.body.name,'req that body')
+    console.log(req.body, "this is req.body" ,req.body.description,'req that body')
 
     try{
 
-        console.log(req.body.name,'heeyyy')
+        console.log(req.body.description,'heeyyy')
 
         validationHandler(req);
 
 
+      let post = new PostModel()
 
-        res.send({message:'The name is ' + req.body.name})
+
+
+      post.description = req.body.description;
+      post.image = req.file.filename;
+
+      post = await post.save();
+
+
+
+      res.send(post)
 
     }
     catch(err){
