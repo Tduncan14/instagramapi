@@ -18,3 +18,4 @@ module.exports = folderName => {
     dest: `public/uploads/${folderName}/`
   });
 };
+
