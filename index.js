@@ -8,6 +8,9 @@ const errorHandler = require('./middleware/errorhandler');
 const postRoutes = require('./routes/post')
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const passportJWT = require('./middleware/passport') ();
+
+
 
 dotenv.config()
 const app = express();
@@ -19,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(passportJWT.initialize())
 
 app.use('/api/post',postRoutes)
 

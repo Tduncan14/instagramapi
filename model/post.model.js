@@ -15,7 +15,11 @@ const PostSchema = new Schema({
         type:String,
         required:true
     },
-    // user:string,
+    User:{
+        type: Schema.Types.ObjectId,
+        ref:"user"
+
+    },
     createdAt:{
         type:Date,
         default: Date.now()
