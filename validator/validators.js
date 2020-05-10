@@ -17,5 +17,5 @@ exports.hasDescription = body("description")
 
   exports.isEmail = body("email")
   .isEmail()
-  .withMessage(Email must be correct)
+  .withMessage('Email must be correct')
 

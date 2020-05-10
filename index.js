@@ -9,7 +9,7 @@ const postRoutes = require('./routes/post')
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const passportJWT = require('./middleware/passport') ();
-
+const authRoutes = require('./routes/auth');
 
 
 dotenv.config()
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(passportJWT.initialize())
 
 app.use('/api/post',postRoutes)
-
+app.use('/api/auth',authRoutes);
 
 mongoose.Promise = global.Promise;
 
